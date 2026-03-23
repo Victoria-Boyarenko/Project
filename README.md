@@ -1,4 +1,5 @@
-# Project
+# Anime shop
+## Project Description
 
 ## Team Members
 - Boyarenko Victoriya
