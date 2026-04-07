@@ -1,0 +1,33 @@
+<h1>Anime Shop</h1>
+
+<h2>Add Product</h2>
+
+<input [(ngModel)]="newProduct.name" placeholder="Name">
+<input [(ngModel)]="newProduct.price" type="number" placeholder="Price">
+<input [(ngModel)]="newProduct.description" placeholder="Description">
+<input [(ngModel)]="newProduct.image" placeholder="Image URL">
+
+<button (click)="addProduct()">Add</button>
+<div class="categories">
+  @for (c of categories; track c.id) {
+    <button
+      (click)="selectCategory(c.id)"
+      [class.active]="selectedCategoryId === c.id">
+      {{ c.name }}
+    </button>
+  }
+</div>
+
+@if (selectedCategoryId === null) {
+  <p>Please select a category</p>
+} @else {
+  <app-product-list-component
+    [products]="filteredProducts()"
+    (like)="handleLike($event)"
+    (delete)="handleDelete($event)">
+  </app-product-list-component>
+}
+
+@if (errorMessage) {
+  <p style="color:red">{{ errorMessage }}</p>
+}

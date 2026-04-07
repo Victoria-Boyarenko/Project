@@ -1,0 +1,11 @@
+<h2>Categories</h2>
+
+<div class="category-grid">
+  @for (c of categories; track c.id) {
+    <div class="category-card">
+      <h3>{{ c.name }}</h3>
+      <p>Explore products in the {{ c.name }} category.</p>
+      <a routerLink="/products">View Products</a>
+    </div>
+  }
+</div>

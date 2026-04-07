@@ -1,0 +1,81 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from '../../components/product-list-component/product-list-component';
+import { Product } from '../../models/product.model';
+import { Category } from '../../models/category.model';
+import { ProductService } from '../../services/product.service';
+
+@Component({
+  selector: 'app-products',
+  standalone: true,
+  imports: [CommonModule, FormsModule, ProductListComponent],
+  templateUrl: './products.html',
+  styleUrl: './products.css'
+})
+export class ProductsComponent implements OnInit {
+  products: Product[] = [];
+
+  categories: Category[] = [
+    { id: 1, name: 'Figures' },
+    { id: 2, name: 'Manga' },
+    { id: 3, name: 'Clothing' }
+  ];
+
+  selectedCategoryId: number | null = null;
+
+  newProduct: any = {
+    name: '',
+    price: 0,
+    description: '',
+    image: '',
+    categoryId: 1
+  };
+
+  errorMessage = '';
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
+    this.productService.getProducts().subscribe({
+      next: (data) => this.products = data,
+      error: () => this.errorMessage = 'Error loading products'
+    });
+  }
+
+  selectCategory(id: number): void {
+    this.selectedCategoryId = id;
+  }
+
+  filteredProducts(): Product[] {
+    if (this.selectedCategoryId === null) {
+      return [];
+    }
+    return this.products.filter(p => p.categoryId === this.selectedCategoryId);
+  }
+
+  handleLike(id: number): void {
+    this.productService.likeProduct(id).subscribe(() => this.loadProducts());
+  }
+
+  handleDelete(id: number): void {
+    this.productService.deleteProduct(id).subscribe(() => this.loadProducts());
+  }
+
+  addProduct(): void {
+    this.productService.addProduct(this.newProduct).subscribe(() => {
+      this.loadProducts();
+      this.newProduct = {
+        name: '',
+        price: 0,
+        description: '',
+        image: '',
+        categoryId: 1
+      };
+    });
+  }
+}

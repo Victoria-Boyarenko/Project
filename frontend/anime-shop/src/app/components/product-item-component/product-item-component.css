@@ -1,0 +1,27 @@
+.card {
+  background: rgba(30, 0, 60, 0.7);
+  border-radius: 16px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+.name {
+  color: #caa6ff;
+}
+
+.price {
+  color: #00eaff;
+}
+
+.like {
+  background: transparent;
+}
+
+.like:hover {
+  background: rgba(255, 0, 150, 0.2);
+}
+
+.delete {
+  background: rgba(255, 0, 0, 0.7);
+}

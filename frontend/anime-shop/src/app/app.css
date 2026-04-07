@@ -1,0 +1,34 @@
+nav a.active {
+  color: #ff7efc;
+  border-bottom: 2px solid #ff7efc;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 15px 20px;
+  background: rgba(66, 23, 109, 0.642);
+  backdrop-filter: blur(10px);
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #caa6ff;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff7efc;
+  transform: scale(1.05);
+}
+
+nav button {
+  margin-left: auto;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  background: #8a2be2;
+  color: white;
+}

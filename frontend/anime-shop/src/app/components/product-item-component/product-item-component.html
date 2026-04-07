@@ -1,0 +1,32 @@
+ <div class="card">
+            <img [src]="getAllImages(product())[getIndex(product().id)]" [alt]="product().name" class="img">
+
+            <div class="thumbs">
+                @for(img of getAllImages(product()); track $index){
+                     <img class="thumb" [class.active]="$index === getIndex(product().id)" [src]="img" [alt]="product().name + ' thubnail ' + ($index +1) " (click)="setIndex(product().id, $index)">
+                }
+            </div>
+            <div class="nav">
+                <button (click)="prevImage(product().id, getAllImages(product()).length)">←</button>
+                <button (click)="nextImage(product().id, getAllImages(product()).length)">→</button>
+            </div>
+
+
+            <h3 class="name">{{product().name}}</h3>
+            <p class="desc">{{product().description}}</p>
+            <p class="price"><b>{{product().price | number}} ₸</b></p>
+            <p class="rating">Rating: <b>{{product().rating}}</b> ⭐</p>
+            <a class="link" [href]="product().link" target="_blank"> Open on Kaspi</a>
+
+            <button (click)="onLikeClick()" class="like">❤️ {{product().likes}}</button>
+            <button (click)="shareOnWhatsaApp(product().link)"> Share on WhatsApp</button>
+            <button (click)="shareOnTelegram(product().link, product().name)">Share on Telegram</button>
+            <button (click)="onDeleteClick()" class="delete">Delete</button>
+ 
+
+        </div>
+
+
+
+
+  
