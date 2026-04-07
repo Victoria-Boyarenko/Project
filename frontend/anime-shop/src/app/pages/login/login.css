@@ -5,28 +5,28 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-top: -70px;
-}
 
+  margin-top: -70px;
+  padding: 20px;
+}
+ 
 h2 {
-  font-size: 40px;
+  font-size: 48px;
   color: #caa6ff;
   margin-bottom: 10px;
-  font-size: 48px;
   text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
 }
-
+ 
 input {
   width: 350px;
   padding: 14px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 10px;
   border: 1px solid #8a2be2;
   background: rgba(255, 255, 255, 0.1);
   color: white;
-  font-size: 16px;
 }
-
+ 
 .buttons {
   display: flex;
   gap: 15px;
@@ -47,13 +47,54 @@ button {
 button:hover {
   background: #a855f7;
 }
-
+ 
 p {
   color: #ffffff;
   font-size: 17px;
 }
 
 .message {
-  height: 20px; 
+  height: 20px;
 }
  
+@media (max-width: 900px) {
+  input {
+    width: 280px;
+  }
+
+  button {
+    width: 140px;
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+}
+ 
+@media (max-width: 500px) {
+  .login-box {
+    margin-top: 0;
+    padding: 20px;
+  }
+
+  input {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 34px;
+    text-align: center;
+  }
+}
