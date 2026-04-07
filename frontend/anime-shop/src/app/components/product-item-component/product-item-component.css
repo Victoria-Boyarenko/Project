@@ -1,27 +1,202 @@
 .card {
-  background: rgba(30, 0, 60, 0.7);
   border-radius: 16px;
-  padding: 12px;
-  backdrop-filter: blur(8px);
+  padding: 14px;
+  background: rgba(30, 0, 60, 0.75);
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+  min-height: 560px;
+}
+
+.img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.thumbs {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  overflow-x: auto;
+}
+
+.thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.thumb.active {
+   /* border-color: #a250ef;  */
+  border-color: #ef50ea;  
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 12px 0;
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #892be27f;
+  color: white;
+  font-size: 20px;
 }
 
 .name {
+  color: #d7b3ff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.desc {
+  color: white;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.rating {
+  color: white;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.like-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  user-select: none;
+}
+
+.heart {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.like-row:hover .heart {
+  transform: scale(1.1);
+}
+
+.link {
+  text-decoration: none;
   color: #caa6ff;
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.price {
-  color: #00eaff;
+.link:hover {
+  color: #ff55fc;
+  transform: scale(1.05);
+  text-decoration: underline;
 }
 
-.like {
-  background: transparent;
+.share-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.like:hover {
-  background: rgba(255, 0, 150, 0.2);
+.share-btn {
+  flex: 1;
+  padding: 10px 8px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(45deg, #8a2be2, #a15dd9, #f264d8);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+}
+
+.share-btn:hover {
+  background: linear-gradient(45deg, #a14cf0, #c088ed, #fe87e9);
+  
 }
 
 .delete {
-  background: rgba(255, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgba(247, 0, 255, 0.85);
+  color: white;
+  font-size: 16px;
+}
+
+.delete:hover {
+  background:  rgba(235, 5, 97, 0.85);
+}
+
+.price {
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.price-label {
+  color: white;
+}
+
+.price-value {
+  color: #caa6ff;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .card {
+    min-height: 520px;
+  }
+
+  .img {
+    height: 260px;
+  }
+
+  .share-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .img {
+    height: 220px;
+  }
+
+  .thumb {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-btn {
+    font-size: 16px;
+    padding: 8px;
+  }
 }

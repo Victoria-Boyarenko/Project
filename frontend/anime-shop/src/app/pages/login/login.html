@@ -4,18 +4,18 @@
   <input [(ngModel)]="username" placeholder="Username">
   <input [(ngModel)]="password" type="password" placeholder="Password">
 
-<div class="buttons">
-  <button (click)="login()">Login</button>
-  <button (click)="logout()">Logout</button>
-</div>
+  <div class="buttons">
+    <button (click)="login()">Login</button>
+    <button (click)="logout()">Logout</button>
+  </div>
 
-<div class="message">
-  @if (errorMessage) {
-    <p class="error">{{ errorMessage }}</p>
-  }
+  <div class="message">
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
 
-  @if (successMessage) {
-    <p class="success">{{ successMessage }}</p>
-  }
-</div>
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+  </div>
 </div>
