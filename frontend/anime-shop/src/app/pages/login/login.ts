@@ -22,24 +22,78 @@ export class LoginComponent {
     private router: Router
   ) {}
 
-  login() {
+  login(): void {
+    console.log('login button clicked');
+
     this.errorMessage = '';
     this.successMessage = '';
 
     this.authService.login(this.username, this.password).subscribe({
-      next: () => {
+      next: (res) => {
+        console.log('LOGIN SUCCESS', res);
         this.successMessage = 'Login successful';
-        this.router.navigate(['/products']);
+        setTimeout(() => {
+          this.router.navigate(['/products']);
+        }, 500);
       },
-      error: () => {
+      error: (err) => {
+        console.log('LOGIN ERROR', err);
         this.errorMessage = 'Invalid username or password';
       }
     });
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout();
     this.successMessage = 'Logged out';
     this.errorMessage = '';
   }
 }
+
+
+
+// import { Component } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+// import { CommonModule } from '@angular/common';
+// import { AuthService } from '../../services/auth.service';
+// import { Router } from '@angular/router';
+
+// @Component({
+//   selector: 'app-login',
+//   standalone: true,
+//   imports: [FormsModule, CommonModule],
+//   templateUrl: './login.html',
+//   styleUrl: './login.css'
+// })
+// export class LoginComponent {
+//   username = '';
+//   password = '';
+//   errorMessage = '';
+//   successMessage = '';
+
+//   constructor(
+//     private authService: AuthService,
+//     private router: Router
+//   ) {}
+
+//   login() {
+//     this.errorMessage = '';
+//     this.successMessage = '';
+
+//     this.authService.login(this.username, this.password).subscribe({
+//       next: () => {
+//         this.successMessage = 'Login successful';
+//         this.router.navigate(['/products']);
+//       },
+//       error: () => {
+//         this.errorMessage = 'Invalid username or password';
+//       }
+//     });
+//   }
+
+//   logout() {
+//     this.authService.logout();
+//     this.successMessage = 'Logged out';
+//     this.errorMessage = '';
+//   }
+// }

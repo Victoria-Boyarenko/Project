@@ -57,6 +57,17 @@ p {
   height: 20px;
 }
  
+.message {
+  min-height: 24px;
+  color: white;
+  font-size: 17px;
+  text-align: center;
+}
+
+.error {
+  color: #ff8080;
+}
+
 @media (max-width: 900px) {
   input {
     width: 280px;
