@@ -1,0 +1,19 @@
+<h1>Chat with Admin</h1>
+
+@if (errorMessage) {
+  <p>{{ errorMessage }}</p>
+}
+
+<div class="chat-box">
+  @for (message of messages; track message.id) {
+    <div class="message" [class.admin]="message.is_from_admin">
+      <b>{{ message.is_from_admin ? 'Admin' : 'You' }}:</b>
+      <span>{{ message.text }}</span>
+    </div>
+  }
+</div>
+
+<div class="send-box">
+  <input [(ngModel)]="newMessage" placeholder="Write a message...">
+  <button (click)="sendMessage()">Send</button>
+</div>

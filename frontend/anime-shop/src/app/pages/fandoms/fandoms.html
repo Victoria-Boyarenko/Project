@@ -1,0 +1,27 @@
+<h1 class="title">Fandoms</h1>
+
+@if (errorMessage) {
+  <p class="empty-text" style="color: #ff9aa9;">{{ errorMessage }}</p>
+} @else {
+  @if (fandoms.length > 0) {
+    <div class="grid">
+      @for (f of fandoms; track f.name) {
+        <div class="card" (click)="openFandom(f.name)">
+          <div class="img-box">
+            <img [src]="f.image" class="img" [alt]="f.name">
+          </div>
+
+          <div class="info">
+            <h2>{{ f.name }}</h2>
+            <p>{{ f.count }} products</p>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="empty-text">No fandoms yet</p>
+  }
+}
+
+
+ 

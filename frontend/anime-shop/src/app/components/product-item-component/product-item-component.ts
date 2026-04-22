@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { input, output } from '@angular/core';
 import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-item-component',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './product-item-component.html',
   styleUrl: './product-item-component.css',
@@ -12,43 +12,40 @@ import { Product } from '../../models/product.model';
 export class ProductItemComponent {
   product = input.required<Product>();
   like = output<number>();
+  favorite = output<number>();
   delete = output<number>();
 
-  onLikeClick (): void {
-    this.like.emit (this.product().id);
+  selectedImageIndex: Record<number, number> = {};
+
+  onLikeClick(): void {
+    this.like.emit(this.product().id);
   }
 
-  onDeleteClick(): void{
-    this.delete.emit (this.product().id);
+  onFavoriteClick(): void {
+    this.favorite.emit(this.product().id);
   }
 
-  
-  shareOnWhatsaApp (link: string){
+  onDeleteClick(): void {
+    this.delete.emit(this.product().id);
+  }
+
+  shareOnWhatsApp(link: string): void {
     const message = 'Check out this product: ' + link;
-
-    const encodeMessage = encodeURIComponent(message);
-
-    const url  = 'https://wa.me/?text='+ encodeMessage;
-    
+    const encodedMessage = encodeURIComponent(message);
+    const url = 'https://wa.me/?text=' + encodedMessage;
     window.open(url, '_blank');
   }
 
-  shareOnTelegram(link: string, name: string){
+  shareOnTelegram(link: string, name: string): void {
     const encodedUrl = encodeURIComponent(link);
-
-    const encodeText = encodeURIComponent(name);
-
-    const url = `https://t.me/share/url?url=${encodedUrl}&text=${encodeText}`;
-
-    window.open (url, '_blank')
+    const encodedText = encodeURIComponent(name);
+    const url = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+    window.open(url, '_blank');
   }
 
-  
-  getAllImages (p: Product): string[] {
-    return [p.image, ...p.images];
+  getAllImages(p: Product): string[] {
+    return [p.image, ...(p.images || [])];
   }
-
-  selectedImageIndex: Record<number, number> = {};
 
   getIndex(productId: number): number {
     return this.selectedImageIndex[productId] ?? 0;
@@ -60,14 +57,13 @@ export class ProductItemComponent {
 
   prevImage(productId: number, total: number): void {
     const current = this.getIndex(productId);
-    const next = (current - 1 + total)%total;
+    const next = (current - 1 + total) % total;
     this.setIndex(productId, next);
   }
 
-  nextImage (productId: number, total: number): void{
+  nextImage(productId: number, total: number): void {
     const current = this.getIndex(productId);
-    const next = (current + 1)% total;
-    this.setIndex(productId,next); 
+    const next = (current + 1) % total;
+    this.setIndex(productId, next);
   }
-
 }

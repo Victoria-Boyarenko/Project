@@ -1,33 +1,68 @@
-<h1>Anime Shop</h1>
+@if (showToast) {
+  <div class="toast" [ngClass]="toastType">
+    {{ toastMessage }}
+  </div>
+}
 
-<h2>Add Product</h2>
+<div class="products-page">
+  <h1>Anime Shop</h1>
 
-<input [(ngModel)]="newProduct.name" placeholder="Name">
-<input [(ngModel)]="newProduct.price" type="number" placeholder="Price">
-<input [(ngModel)]="newProduct.description" placeholder="Description">
-<input [(ngModel)]="newProduct.image" placeholder="Image URL">
+  <div class="section-box">
+    <h2>Add Product</h2>
 
-<button (click)="addProduct()">Add</button>
-<div class="categories">
-  @for (c of categories; track c.id) {
-    <button
-      (click)="selectCategory(c.id)"
-      [class.active]="selectedCategoryId === c.id">
-      {{ c.name }}
-    </button>
-  }
-</div>
+    <div class="add-form">
+      <input [(ngModel)]="newProduct.name" placeholder="Name">
+      <input [(ngModel)]="newProduct.price" type="number" placeholder="Price">
+      <input [(ngModel)]="newProduct.description" placeholder="Description">
+      <input [(ngModel)]="newProduct.image" placeholder="Image URL">
+      <input [(ngModel)]="newProduct.fandom" placeholder="Fandom (Naruto, One Piece...)">
 
-@if (selectedCategoryId === null) {
-  <p>Please select a category</p>
-} @else {
+      <select class="category-select" [(ngModel)]="newProduct.categoryId">
+        @for (c of categories; track c.id) {
+          <option [ngValue]="c.id">{{ c.name }}</option>
+        }
+      </select>
+
+      <button (click)="addProduct()">Add</button>
+    </div>
+  </div>
+
+  <hr class="custom-line">
+
+  <div class="section-box">
+    <h2>Filters</h2>
+
+    <div class="filters-row">
+      <select [(ngModel)]="selectedCategoryId">
+        <option [ngValue]="null">All Categories</option>
+        @for (c of categories; track c.id) {
+          <option [ngValue]="c.id">{{ c.name }}</option>
+        }
+      </select>
+
+      <select [(ngModel)]="selectedFandom">
+        <option value="">All Fandoms</option>
+        @for (f of fandoms; track f) {
+          <option [value]="f">{{ f }}</option>
+        }
+      </select>
+
+      <select [(ngModel)]="selectedState">
+        <option value="all">All Products</option>
+        <option value="liked">Liked</option>
+        <option value="favorite">Favorites</option>
+      </select>
+    </div>
+  </div>
+
   <app-product-list-component
     [products]="filteredProducts()"
     (like)="handleLike($event)"
+    (favorite)="handleFavorite($event)"
     (delete)="handleDelete($event)">
   </app-product-list-component>
-}
 
-@if (errorMessage) {
-  <p style="color:red">{{ errorMessage }}</p>
-}
+  @if (errorMessage) {
+    <p class="error-message">{{ errorMessage }}</p>
+  }
+</div>

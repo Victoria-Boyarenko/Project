@@ -1,0 +1,1658 @@
+{
+  "info": {
+    "_postman_id": "1274c872-8893-4307-a03b-dde32d43a3fd",
+    "name": "Anime shop",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53663514"
+  },
+  "item": [
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcyODgwLCJpYXQiOjE3NzY4NzI1ODAsImp0aSI6IjQxMTc5Y2U2ZDBjZjQyOWRhMWQ3MGE0NTFiMzhmZDdkIiwidXNlcl9pZCI6IjEifQ.Lm1csWIeDQ3kEAqKwirtAFwLOevepevwNYPb2__4s0c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"text\": \"Hello, how can I help you?\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/chat/admin-reply/1/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "chat",
+                "admin-reply",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODUxODY1LCJpYXQiOjE3NzY4NTE1NjUsImp0aSI6IjA0ZjdjYzY2NzFiODRhZDVhOGM1YjVhOTAyNDQ1ZTUzIiwidXNlcl9pZCI6IjEifQ.U9kAvVbVDOYQNmFbUF8hDKET58O5lgOknqJfvYFvltw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"благословение небожителей фигурки,Heaven Official's Blessing (коллекционная модель сидячая поза) \",\r\n  \"description\": \"Его высота составляет около 8 см, а вес - 200 г. Он компактный и портативный. Качество изготовления изысканное и безупречное. Детали, начиная от линий одежды и заканчивая аксессуарами для волос, ярко отреставрированы, и он полон старины. \" ,\r\n  \"price\": 3722,\r\n  \"rating\": 4.9,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/8937216623.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-m/wc1000/8189672710.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-e/wc1000/8189672774.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-h/wc1000/8189672813.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/blagoslovenie-nebozhiteley-figurki-heaven-official-s-blessing-kollektsionnaya-model-sidyachaya-poza-2999099203/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 688,\r\n  \"fandom\": \"Heaven Official's Blessing\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();\r",
+                  "pm.collectionVariables.set(\"access_token\", jsonData.access);\r",
+                  "pm.collectionVariables.set(\"refresh_token\", jsonData.refresh);\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODUzNzU3LCJpYXQiOjE3NzY4NTM0NTcsImp0aSI6IjFlMDUzMDEzMDkxMDRmMDBiNjIzOGE1ZTEyZGYyNjZkIiwidXNlcl9pZCI6IjEifQ.c5FNdO9g8wUxcmnsVWFpIRs6sJVfNzK7RIdpT7mw6wc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Link Click. Агент времени. Том 1 | Ли Хаолин\",\r\n  \"description\": \"В одном из уголков шумного города разместилось небольшое фотоателье под названием «Время». Этим безлюдным местечком управляют два парня с необычными способностями – Чэн Сяоши и Лу Гуан. Чтобы выполнить заказ клиента, они совместными усилиями проникают в фотоснимок, однако не всегда всё идёт по плану… \" ,\r\n  \"price\": 9835,\r\n  \"rating\": 4.7,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-1/wc1000/6928095133.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/6928095130.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-1/wc1000/6928095133.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/6928095130.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/link-click-agent-vremeni-tom-1-li-haolin-1258850133/?__rr=1&abt_att=1&from=share_android&perehod=smm_share_button_productpage_link#section-description--offset-140--offset-80\",\r\n  \"likes\": 999,\r\n  \"fandom\": \"Link Click\",\r\n  \"categoryId\": 2\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODU0MTM5LCJpYXQiOjE3NzY4NTM4MzksImp0aSI6ImI1ZTM1ZjI5ZTg2NTQzYjA4ZjIwYzAxZmMyZGEzZDBhIiwidXNlcl9pZCI6IjEifQ.z0B9b24fcicJ0S-VnXCu0pviV-YOm6rL-KTCKPhaBa8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Link Click. Агент времени. Том 2 | Ли Хаолин\",\r\n  \"description\": \"Команда фотоателье «Время» получает новый заказ: отправиться в худший день в жизни клиента и передать несколько посланий дорогим для него людям. Казалось бы, что может быть проще? Но характер Чэн Сяоши не позволяет ему спокойно выполнить задание, и ход событий нарушается. К каким последствиям это приведёт? \" ,\r\n  \"price\": 7817,\r\n  \"rating\": 4.5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-v/wc1000/6928700107.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/6928700108.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-1/wc1000/6928700113.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-2/wc1000/6928700114.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/link-click-agent-vremeni-tom-2-li-haolin-1431159019/?from=share_android&perehod=smm_share_button_productpage_link#section-description--offset-140--offset-80\",\r\n  \"likes\": 1783,\r\n  \"fandom\": \"Link Click\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODU0NTU0LCJpYXQiOjE3NzY4NTQyNTQsImp0aSI6ImVmMGE1MTVlNWIxNjRiMWM5YTVmYWYzZDIxMGY0YjMwIiwidXNlcl9pZCI6IjEifQ.BAVWBK8ZHlzt8zfSm0lLIRVWv0fhedx7KgIGpJv4tLY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Aниме фигурка Агент времени Лукас / Nendoroid #2162 Link Click 10см \",\r\n  \"description\": \"Наименование: Лукас,Способ упаковки: цветная коробка,Материал продукта: пвх,Размер продукта: 10 см,Страна происхождения : Китай,Применимые лица: энтузиасты аниме \" ,\r\n  \"price\": 6767,\r\n  \"rating\": 4.3,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-l/wc1000/9870897909.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-v/wc1000/9870898495.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/9870898714.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-h/wc1000/9870784577.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/anime-figurka-agent-vremeni-lukas-nendoroid-2162-link-click-10sm-3984077909/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 2000,\r\n  \"fandom\": \"Link Click\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODU1MzU0LCJpYXQiOjE3NzY4NTUwNTQsImp0aSI6IjIyMjVlYzA3NTFhYTQ2MjhiMTY5MDZiN2YxZmI3YjIzIiwidXNlcl9pZCI6IjEifQ.N00XlV4A654g_i_1YqoRDouLfSaW90m6XUlyBMSADyU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Проза бродячих псов. Том 2. Манга | Асагири Кафка \",\r\n  \"description\": \"Кёка Идзуми воспротивилась приказу мафии и едва не погибла по собственной вине. Ацуси Накадзима спас ее да еще тофу накормил — все ради того, чтобы выведать ценные сведения… Только мир и покой продлились недолго: Акутагава разработал коварный план похищения Ацуси \" ,\r\n  \"price\": 8590,\r\n  \"rating\": 5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-g/wc1000/6069157024.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-f/wc1000/6069157023.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-h/wc1000/6069157025.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-i/wc1000/6069157026.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/proza-brodyachih-psov-tom-2-manga-asagiri-kafka-1649101177/?from=share_android&perehod=smm_share_button_productpage_link&sh=dz7KGCjvCg\",\r\n  \"likes\": 1579,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODU1Nzk1LCJpYXQiOjE3NzY4NTU0OTUsImp0aSI6IjAxMjYxNGY0ZGQ2NTRmZjc5NWZmYjZhYjIzZmZlZjlmIiwidXNlcl9pZCI6IjEifQ.a_wekAukI-cNSUze8nKx9o8cy52FsJWfXshVoZaWihw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Проза бродячих псов. Том 1. Манга | Асагири Кафка  \",\r\n  \"description\": \"Мальчика по имени Ацуси Накадзима выгоняют из сиротского приюта, и так он оказывается в Иокогаме без денег и крыши над головой. Ацуси в таком отчаянии, что решается ограбить первого встречного. Однако сердце у него доброе, и вместо ограбления он спасает жизнь тонущему человеку, которого видит в реке. \" ,\r\n  \"price\": 8126,\r\n  \"rating\": 5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-6/wc1000/9871199106.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-w/wc1000/6056483492.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-y/wc1000/6056483494.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-z/wc1000/6056483495.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/proza-brodyachih-psov-tom-1-manga-asagiri-kafka-253042501/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1500,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODU3NTQzLCJpYXQiOjE3NzY4NTcyNDMsImp0aSI6ImM5MmI5MDY0OTUxMDQ1ZTliOWNiOWMyYjUxMjYzNTA1IiwidXNlcl9pZCI6IjEifQ.NOnAswE4ME6IRS8XWdWLlfMVpeW0144OjFL-Ib3p0hk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Термонаклейка на одежду термоаппликация Великий из бродячих псов Дазай Аниме   \",\r\n  \"description\": \"Одежда может быть не только функциональной, но и выразительной благодаря термонаклейке на одежду. Привносите индивидуальность в ваш стиль с этим удивительным аксессуаром. Теперь вы можете легко преобразить ваши школьные или повседневные вещи во что-то особенное, с помощью самоклеящихся и эстетичных термоэтикеток.\" ,\r\n  \"price\": 1845,\r\n  \"rating\": 2.5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-v/wc1000/6980582371.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/6980580752.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-k/wc1000/6980580488.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-9/wc1000/6980327901.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/termonakleyka-na-odezhdu-termoapplikatsiya-velikiy-iz-brodyachih-psov-dazay-anime-1517088894/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1986,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNDMzLCJpYXQiOjE3NzY4NjExMzMsImp0aSI6ImYzZjJkNTQyMjkwMDQwYmI4NDZjNzBjZjg3MTY1MGM4IiwidXNlcl9pZCI6IjEifQ.tNhJIqk4SvTJWI1RFsuauazim3nHOLpXwusz49kwKPE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Футболка Великий из бродячих псов Чуя   \",\r\n  \"description\": \"Окунитесь в атмосферу загадочного Йокогамы с этой футболкой, вдохновлённой вселенной Bungo Stray Dogs. Для тех, кто восхищается противостоянием Ацуси Накадзимы и Фёдора Достоевского, чьи идеи переплетаются как страницы классических романов.\" ,\r\n  \"price\": 7564,\r\n  \"rating\": 4.8,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-4/wc1000/8366417392.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-1/wc1000/8482199437.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-x/wc1000/8482199541.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-j/wc1000/8482199491.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/futbolka-velikiy-iz-brodyachih-psov-chuya-3219362675/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1876,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNDMzLCJpYXQiOjE3NzY4NjExMzMsImp0aSI6ImYzZjJkNTQyMjkwMDQwYmI4NDZjNzBjZjg3MTY1MGM4IiwidXNlcl9pZCI6IjEifQ.tNhJIqk4SvTJWI1RFsuauazim3nHOLpXwusz49kwKPE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Фигурка Осаму Дазай Osamu Dazai Бродячие псы Bungou Stray Dogs  \",\r\n  \"description\": \"Аниме Фигурка статуэтка Бродячие псы. Хорошо детализированная и раскрашенная фигурка. Premium Фигурка выполнена из качественного пластика без запаха.Детальная прорисовка и покраска не оставят равнодушными ни одного коллекционера аниме фигурок.\" ,\r\n  \"price\": 7842,\r\n  \"rating\": 4.9,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-m/wc1000/7264526566.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-r/wc1000/6987570507.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-9/wc1000/6987570489.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-8/wc1000/6987570488.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-osamu-dazay-osamu-dazai-brodyachie-psy-bungou-stray-dogs-801995828/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1469,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNDMzLCJpYXQiOjE3NzY4NjExMzMsImp0aSI6ImYzZjJkNTQyMjkwMDQwYmI4NDZjNzBjZjg3MTY1MGM4IiwidXNlcl9pZCI6IjEifQ.tNhJIqk4SvTJWI1RFsuauazim3nHOLpXwusz49kwKPE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Набор фигурок Проза бродячих псов Чуя Накахара, Осаму Дазай / Bungou Stray Dogs Chuuya Nakahara, Osamu Dazai \",\r\n  \"description\": \"Набор фигурок Проза бродячих псов Чуя Накахара, Осаму Дазай / Bungou Stray Dogs Chuuya Nakahara, Osamu Dazai 2шт (7см, пакет)\" ,\r\n  \"price\": 4314,\r\n  \"rating\": 4.8,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-2/wc1000/7643116514.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-q/wc1000/7643116538.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/7643116558.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-e/wc1000/7643116454.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/nabor-figurok-proza-brodyachih-psov-chuya-nakahara-osamu-dazay-bungou-stray-dogs-chuuya-nakahara-2342309284/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1370,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNDMzLCJpYXQiOjE3NzY4NjExMzMsImp0aSI6ImYzZjJkNTQyMjkwMDQwYmI4NDZjNzBjZjg3MTY1MGM4IiwidXNlcl9pZCI6IjEifQ.tNhJIqk4SvTJWI1RFsuauazim3nHOLpXwusz49kwKPE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Аниме Фигурка/Великий из бродячих псов/Тюя Накахара,23cm1-30  \",\r\n  \"description\": \"Детализированная коллекционная фигурка Тюи Накахары, выполненная из качественного и долговечного ПВХ. Высокая точность исполнения и насыщенные цвета делают её идеальным подарком для фанатов аниме и ценным дополнением к любой коллекции.\" ,\r\n  \"price\": 6666,\r\n  \"rating\": 3.7,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-f/wc1000/8256025239.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/8256025076.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-9/wc1000/8256025125.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/8256025186.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/anime-figurka-velikiy-iz-brodyachih-psov-tyuya-nakahara-23cm1-30-3054666631/?__rr=1&abt_att=1&from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1480,\r\n  \"fandom\": \"Bungou Stray Dogs\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNzc3LCJpYXQiOjE3NzY4NjE0NzcsImp0aSI6IjAwZjdlMzZkNzI5MjRhMmU5MzVmOTQ5YWRjOTExMDdlIiwidXNlcl9pZCI6IjEifQ.LEBmMRz7SSuNq5ZC0BYXh0piTG0rkbNWY5S2FnCnkoQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Человек-бензопила. Кн.3. Несовершеннолетний. Бум-бум-бум | Фудзимото Тацуки\",\r\n  \"description\": \"Операция специального четвертого отдела в самом разгаре! Пока демоны и одержимые расправляются с ордами зомби, Аки Хаякава встречается лицом к лицу с Саватари, причастной к убийству его напарницы. Таинственная незнакомка сходу использует грязный прием: она натравливает на Хаякаву призрака.\",\r\n  \"price\": 9627,\r\n  \"rating\": 4.5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-f/wc1000/9267937863.jpg\",\r\n  \"images\": [\r\n    \"https://ir-3.ozone.ru/s3/multimedia-1-v/wc1000/8494446847.jpg\",\r\n    \"https://ir-3.ozone.ru/s3/multimedia-1-h/wc1000/7119524285.jpg\",\r\n    \"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/7119524279.jpg\"\r\n  ],\r\n  \"link\": \"https://ozon.kz/product/chelovek-benzopila-kn-3-nesovershennoletniy-bum-bum-bum-fudzimoto-tatsuki-564035879/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1749,\r\n  \"fandom\": \"Chainsaw Man\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNzc3LCJpYXQiOjE3NzY4NjE0NzcsImp0aSI6IjAwZjdlMzZkNzI5MjRhMmU5MzVmOTQ5YWRjOTExMDdlIiwidXNlcl9pZCI6IjEifQ.LEBmMRz7SSuNq5ZC0BYXh0piTG0rkbNWY5S2FnCnkoQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Человек-бензопила. Кн.2. Убить Дэндзи. Мощь огнестрельного оружия | Фудзимото Тацуки \",\r\n  \"description\": \"Дэндзи и его коллеги выезжают на вызов в отель «Морин», где оказываются заперты в бесконечной временной петле на восьмом этаже: хитроумная ловушка, которую подстроил демон, не позволяет охотникам выбраться наружу. Ситуация не сулит ничего хорошего…  \" ,\r\n  \"price\": 8416,\r\n  \"rating\": 5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/9268073615.jpg \",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-6/wc1000/8494446570.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-c/wc1000/7119524280.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-0/wc1000/6161287920.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/chelovek-benzopila-kn-2-ubit-dendzi-moshch-ognestrelnogo-oruzhiya-fudzimoto-tatsuki-564035478/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1578,\r\n  \"fandom\": \"Chainsaw Man\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODYxNzc3LCJpYXQiOjE3NzY4NjE0NzcsImp0aSI6IjAwZjdlMzZkNzI5MjRhMmU5MzVmOTQ5YWRjOTExMDdlIiwidXNlcl9pZCI6IjEifQ.LEBmMRz7SSuNq5ZC0BYXh0piTG0rkbNWY5S2FnCnkoQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Фигурка игрушечной бензопилы  \",\r\n  \"description\": \"Отказ от ответственности: Продукт из Китая, из-за политики, эффект крови на пункте будет уменьшен, поэтому цвет крови может быть немного светлее для обзора и утверждения, вы можете достичь эффекта крови более кровавым путем смешивания цвета самостоятельно. \" ,\r\n  \"price\": 8162,\r\n  \"rating\": 4.2,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-4/wc1000/7023490312.jpg \",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-4/wc1000/6591328924.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-7/wc1000/6591328927.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-3/wc1000/6591328923.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-igrushechnoy-benzopily-1569583081/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1675,\r\n  \"fandom\": \"Chainsaw Man\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwNTkzLCJpYXQiOjE3NzY4NzAyOTMsImp0aSI6IjcwMmE4Y2EwNjFiYzQxM2M5MTgzMzcyNzRmZjg4M2E2IiwidXNlcl9pZCI6IjEifQ.KPQKQtBRxjc2t3q_V7knBFzg31yrUqbVmlWY3Jmhcco",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/1/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwNTkzLCJpYXQiOjE3NzY4NzAyOTMsImp0aSI6IjcwMmE4Y2EwNjFiYzQxM2M5MTgzMzcyNzRmZjg4M2E2IiwidXNlcl9pZCI6IjEifQ.KPQKQtBRxjc2t3q_V7knBFzg31yrUqbVmlWY3Jmhcco",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/2/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                "2",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwNTkzLCJpYXQiOjE3NzY4NzAyOTMsImp0aSI6IjcwMmE4Y2EwNjFiYzQxM2M5MTgzMzcyNzRmZjg4M2E2IiwidXNlcl9pZCI6IjEifQ.KPQKQtBRxjc2t3q_V7knBFzg31yrUqbVmlWY3Jmhcco",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/3/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                "3",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwNTkzLCJpYXQiOjE3NzY4NzAyOTMsImp0aSI6IjcwMmE4Y2EwNjFiYzQxM2M5MTgzMzcyNzRmZjg4M2E2IiwidXNlcl9pZCI6IjEifQ.KPQKQtBRxjc2t3q_V7knBFzg31yrUqbVmlWY3Jmhcco",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Фигурка игрушечной бензопилы Chainsaw man  \",\r\n  \"description\": \"Отказ от ответственности: Продукт из Китая, из-за политики, эффект крови на пункте будет уменьшен, поэтому цвет крови может быть немного светлее для обзора и утверждения, вы можете достичь эффекта крови более кровавым путем смешивания цвета самостоятельно. \" ,\r\n  \"price\": 20613,\r\n  \"rating\": 4.4,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/7030367602.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-p/wc1000/7030367737.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/7030367831.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-i/wc1000/7030367730.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-igrushechnoy-benzopily-chainsaw-man-1576925806/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1674,\r\n  \"fandom\": \"Chainsaw Man\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Фигурка Человек Бензопила Пауэр   \",\r\n  \"description\": \"Добавьте немного хаоса в свою коллекцию с этой детализированной фигуркой Пауэр в качественном исполнении от Taito. Насыщенные цвета и точная проработка деталей из надежного пластика гарантируют, что статуэтка будет притягивать взгляды на вашей полке долгие годы \" ,\r\n  \"price\": 3602,\r\n  \"rating\": 3.3,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/7684750150.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/7684750234.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/7684750162.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-g/wc1000/7684750204.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-chelovek-benzopila-pauer-taito-chainsaw-man-power-complete-figure-2428757114/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1534,\r\n  \"fandom\": \"Chainsaw Man\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Футболка человек бензопила Резе \",\r\n  \"description\": \"Представляем стильную футболку Человек Бензопила, вдохновлённую популярным аниме Chainsaw Man! Эта уникальная одежда идеально подойдёт для поклонников захватывающего сюжета и ярких персонажей. Яркий принт с изображением Денжи и Резе станет отличным дополнением вашего гардероба.\" ,\r\n  \"price\": 8257,\r\n  \"rating\": 4.0,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-1/wc1000/8433461125.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-0/wc1000/8433451368.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-q/wc1000/8277238430.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-2/wc1000/8277238586.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/futbolka-chelovek-benzopila-reze-3722975699/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1356,\r\n  \"fandom\": \"Chainsaw Man\",\r\n  \"categoryId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Фигурка Монолог фармацевта Маомао   \",\r\n  \"description\": \"Фигурка Монолог фармацевта Маомао / Kusuriya no Hitorigoto (11см, пакет)\" ,\r\n  \"price\": 4603,\r\n  \"rating\": 4.9,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-i/wc1000/7723580634.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-0/wc1000/7723580184.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-2/wc1000/7723580186.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-i/wc1000/7723580202.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-monolog-farmatsevta-maomao-kusuriya-no-hitorigoto-11sm-paket-2516612646/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1445,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Фигурка Монолог фармацевта Маомао  \",\r\n  \"description\": \"Фигурка Монолог фармацевта Маомао / Kusuriya no Hitorigoto (10см) 2288\" ,\r\n  \"price\": 7005,\r\n  \"rating\": 4.7,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/7495217456.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-r/wc1000/7487647839.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-5/wc1000/7487647781.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-s/wc1000/7487647768.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-monolog-farmatsevta-maomao-kusuriya-no-hitorigoto-10sm-2288-2058974206/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1754,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Фигурка Монолог фармацевта Маомао Цзиньши   \",\r\n  \"description\": \"Фигурка Монолог фармацевта Маомао Цзиньши / Kusuriya no Hitorigoto Jinshi (10см) 2372\" ,\r\n  \"price\": 8717,\r\n  \"rating\": 4.7,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-e/wc1000/7678217858.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/7678217890.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-v/wc1000/7678217875.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-f/wc1000/7678217859.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-monolog-farmatsevta-maomao-tszinshi-kusuriya-no-hitorigoto-jinshi-10sm-2372-2414945547/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1679,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Ранобэ. Монолог фармацевта. Книга 1. \",\r\n  \"description\": \"Юная травница Маомао ведет жизнь тихую и бедную, пока однажды ее не похищают, дабы продать во дворец императорских жен. С тех пор она день за днем трудится низшей служанкой во внутреннем дворце и мучительно выжидает, когда же кончится отмеренный срок.\" ,\r\n  \"price\": 10484,\r\n  \"rating\": 5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/8075003807.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-x/wc1000/9182963625.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-0/wc1000/8075004300.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-o/wc1000/8075003388.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/ranobe-monolog-farmatsevta-kniga-1-hyuganatsu-sino-toko-3584939839/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1556,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Монолог фармацевта. Том 4. Манга.\",\r\n  \"description\": \"Дзинси хотят погубить, и Маомао вовремя предотвращает покушение. Череда странных событий приводит ее к таинственной дворцовой деве, однако Маомао не везет, и единственный ключ к тайне ловко выскальзывает из рук. \" ,\r\n  \"price\": 8254,\r\n  \"rating\": 5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-o/wc1000/9616800192.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-f/wc1000/8451627639.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-g/wc1000/9607478488.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-d/wc1000/9607478485.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/monolog-farmatsevta-tom-4-manga-hyuganatsu-3186648009/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1168,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Футболка монолог фармацевта МаоМао \",\r\n  \"description\": \"Эта футболка с персонажами аниме и манги монолог фармацевта, такими как Джинши, Маомао и Гаошун будет отличным выбором для всех, кто любит японскую культуру и аниме монолог фармацевта.  \" ,\r\n  \"price\": 5308,\r\n  \"rating\": 4,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-s/wc1000/8349514984.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/8349516142.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/8482199447.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-j/wc1000/8482199491.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/futbolka-monolog-farmatsevta-maomao-3078675347/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1573,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcwOTg2LCJpYXQiOjE3NzY4NzA2ODYsImp0aSI6ImIwOTA4MzYwOGFkODRmYmU5ZTNhZDEzZTg1NzgyMzkyIiwidXNlcl9pZCI6IjEifQ.B99hYLIVj6nu-cL7ZMa9Q--WUE6UTgW4XfydS23qkjQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Футболка монолог фармацевта Женьши \",\r\n  \"description\": \"ЭФутболка с мангой Монолог фармацевта (Kusuriya no Hitorigoto) — стильная находка для поклонников восточной эстетики, интриг дворца и умной героини.\" ,\r\n  \"price\": 5308,\r\n  \"rating\": 4.1,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-i/wc1000/8286955686.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/7430424044.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-u/wc1000/7244094774.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/7244091284.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/futbolka-monolog-farmatsevta-zhenshi-3078675804/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1694,\r\n  \"fandom\": \" The Apothecary Diaries\",\r\n  \"categoryId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcxMzI4LCJpYXQiOjE3NzY4NzEwMjgsImp0aSI6Ijc4Y2UwNDViMWNmZjQwZmZiODM1ZjU2NWE0ZDZkMTM3IiwidXNlcl9pZCI6IjEifQ.YbBX_RXlS7gzvlbODwBts1i1a_HRZqbse9L5GW007ps",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Аниме фигурка Jujutsu Kaisen Sukuna 30cm  \",\r\n  \"description\": \"Детализированная фигурка легендарного Короля Проклятий, Сукуны, выполненная в высоком качестве от знаменитого бренда SEGA. Модель изготовлена из прочного ABS-пластика и обладает интерактивными элементами, что делает её по-настоящему ценным экспонатом в коллекции любого фаната.\" ,\r\n  \"price\": 15308,\r\n  \"rating\": 4.6,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-q/wc1000/8697674186.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-l/wc1000/8697673893.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-t/wc1000/8697674189.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-o/wc1000/8697673680.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/anime-figurka-jujutsu-kaisen-sukuna-30cm-3326986629/?at=36tWPXX96h7p7W5ktB4LBE5C8v0m0LHwmEoVRc6PYBZk\",\r\n  \"likes\": 2300,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcxMzI4LCJpYXQiOjE3NzY4NzEwMjgsImp0aSI6Ijc4Y2UwNDViMWNmZjQwZmZiODM1ZjU2NWE0ZDZkMTM3IiwidXNlcl9pZCI6IjEifQ.YbBX_RXlS7gzvlbODwBts1i1a_HRZqbse9L5GW007ps",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Толстовка SHARP&CUT Унисекс \",\r\n  \"description\": \"Встречайте крутые новинки нашего бренда по молодежным трендам года. Листайте карусель и смотрите прикольные худи со смешными рисунками и надписями.\" ,\r\n  \"price\": 13486,\r\n  \"rating\": 5,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-0/wc1000/6671427984.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-y/wc1000/6671427982.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-e/wc1000/6427910486.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-d/wc1000/6427910485.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/tolstovka-sharp-cut-uniseks-1020829563/?at=mqtk7ppPBcM9Y16ruMjpRrmI76wW7Zslv2qMXFvx5RwJ\",\r\n  \"likes\": 1832,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcxMzI4LCJpYXQiOjE3NzY4NzEwMjgsImp0aSI6Ijc4Y2UwNDViMWNmZjQwZmZiODM1ZjU2NWE0ZDZkMTM3IiwidXNlcl9pZCI6IjEifQ.YbBX_RXlS7gzvlbODwBts1i1a_HRZqbse9L5GW007ps",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Фигурка Магическая битва Гето Сугуру \",\r\n  \"description\": \"Эта стильная статуэтка Гето Сугуру станет идеальным презентом для ценителей аниме и качественного мерча. Благодаря аккуратному исполнению и компактному размеру, она гармонично впишется в интерьер и будет радовать глаз на рабочем столе или полке.\" ,\r\n  \"price\": 3179,\r\n  \"rating\": 4.4,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/7806985030.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-r/wc1000/7806985407.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-x/wc1000/7806985053.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-h/wc1000/7806985289.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/figurka-magicheskaya-bitva-geto-suguru-jujutsu-kaisen-suguru-geto-figure-10sm-podarok-na-2670240985/?at=QktJKXXlMcjMRr9QFErnkr0cWZE83s7wlJJpFykLGkX\",\r\n  \"likes\": 746,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcxMzI4LCJpYXQiOjE3NzY4NzEwMjgsImp0aSI6Ijc4Y2UwNDViMWNmZjQwZmZiODM1ZjU2NWE0ZDZkMTM3IiwidXNlcl9pZCI6IjEifQ.YbBX_RXlS7gzvlbODwBts1i1a_HRZqbse9L5GW007ps",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Магическая битва. Jujutsu Kaisen.(Vol 0-23 ) \",\r\n  \"description\": \"Преследуемый оккотсу и находящийся на грани смерти, итадори вспоминает тревожную семейную сцену из своего прошлого.\" ,\r\n  \"price\": 3299,\r\n  \"rating\": 4.8,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-m/wc1000/7214094166.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-3/wc1000/7214094327.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-5/wc1000/7214094329.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-4/wc1000/7214094328.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/magicheskaya-bitva-jujutsu-kaisen-vol-0-23-angliyskiy-komiksmagicheskaya-bitva-jujutsu-kaisen-vol-1803110847/?at=16tL066B2SYMELpWfqM0077uvVGQjkIng53RpcrjoQkm\",\r\n  \"likes\":1654,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcxODczLCJpYXQiOjE3NzY4NzE1NzMsImp0aSI6ImEyNWNmNDBkZmJiYzQ5Y2RhNjMwMzQzYTIxZWE2ZWZkIiwidXNlcl9pZCI6IjEifQ.-f54slK0-e2oM8y0_mPovJhVlM5eyVkskJX5wewXUFE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Магическая битва. Jujutsu Kaisen.(Vol 0-23 ) \",\r\n  \"description\": \"Преследуемый оккотсу и находящийся на грани смерти, итадори вспоминает тревожную семейную сцену из своего прошлого.\" ,\r\n  \"price\": 3363,\r\n  \"rating\": 4.8,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-y/wc1000/7214092954.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-d/wc1000/7214093149.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-e/wc1000/7214093150.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-e/wc1000/7214093150.jpg\"],\r\n \"link\": \"https://ozon.kz/product/magicheskaya-bitva-jujutsu-kaisen-vol-0-23-angliyskiy-komiksmagicheskaya-bitva-jujutsu-kaisen-vol-1803110810/\",\r\n  \"likes\":1423,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODU0OTAxLCJpYXQiOjE3NzY4NTQ2MDEsImp0aSI6IjdkZDBlNjQ3NWIwNTQ1MjQ5OTM3ZWQ3ODA5YjM1MjM2IiwidXNlcl9pZCI6IjEifQ._qPgY4FA8o6S2pa8HG_MwjL9EdCGKJ3A1Zk3jxhnl4Y",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \" Aниме фигурка Агент времени Чэн Сяоши / Nendoroid #2161 Link Click 10см \",\r\n  \"description\": \"Наименование: Чэн Сяоши,Способ упаковки: цветная коробка,Материал продукта: пвх,Размер продукта: 10 см,Страна происхождения : Китай,Применимые лица: энтузиасты аниме\" ,\r\n  \"price\": 6797,\r\n  \"rating\": 4.2,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-x/wc1000/9870784557.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-h/wc1000/9870784541.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-s/wc1000/9870785884.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-h/wc1000/9870784577.jpg\"],\r\n  \"link\": \"https://ozon.kz/product/anime-figurka-agent-vremeni-chen-syaoshi-nendoroid-2161-link-click-10sm-3984083137/?from=share_android&perehod=smm_share_button_productpage_link\",\r\n  \"likes\": 1857,\r\n  \"fandom\": \"Link Click\",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcyMjEwLCJpYXQiOjE3NzY4NzE5MTAsImp0aSI6ImU5ZmJlN2ViMTM0ZDQ5YTU4YmRiYzE2YjVlMGI0YTI0IiwidXNlcl9pZCI6IjEifQ.CJRPdDzOdp2kMm26pVS5m6nVnMC5Dv_iDHHy2D8pW7o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Фигурка Магическая битва Юта Оккоцу  \",\r\n  \"description\": \"Фигурка Магическая битва Юта Оккоцу / Jujutsu Kaisen Yuta Okkotsu Подарки для болельщиков (10 см) 1766 \" ,\r\n  \"price\": 5502,\r\n  \"rating\": 4.7,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-u/wc1000/9585985638.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-c/wc1000/9585984720.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-k/wc1000/9585984296.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-4/wc1000/9585986332.jpg\"],\r\n \"link\": \"https://ozon.kz/t/sSCSdlF\",\r\n  \"likes\":4367,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODcyMjEwLCJpYXQiOjE3NzY4NzE5MTAsImp0aSI6ImU5ZmJlN2ViMTM0ZDQ5YTU4YmRiYzE2YjVlMGI0YTI0IiwidXNlcl9pZCI6IjEifQ.CJRPdDzOdp2kMm26pVS5m6nVnMC5Dv_iDHHy2D8pW7o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Коллекционная ПВХ модель Магическая битва: Годжо Сатору\",\r\n  \"description\": \"Фигурка Сатору Годжо из «Jujutsu Kaisen» в стильном кресле. Детализированная модель для коллекционеров и фанатов аниме.\" ,\r\n  \"price\": 17408,\r\n  \"rating\": 4.7,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/9009914806.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-t/wc1000/9009916193.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-x/wc1000/9009915729.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-v/wc1000/9009915151.jpg\"],\r\n \"link\": \"https://ozon.kz/t/7W5WkcJ\",\r\n  \"likes\":6537,\r\n  \"fandom\": \"Jujutsu Kaisen \",\r\n  \"categoryId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODc0NjI3LCJpYXQiOjE3NzY4NzQzMjcsImp0aSI6ImU4MmNmYzJlYWFmZjQzZWU5OTYxZTFjZmZjZjhjZDI0IiwidXNlcl9pZCI6IjEifQ.r-RnF6bGtF6YwCIv_V6sR8-uJYnjCaPEWcZTW1hco-0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Link Click. Агент времени. Том 3 | Ли Хаолин \",\r\n  \"description\": \"Чэн Сяоши никак не может прийти в себя после прошлого задания, но на пороге фотоателье неожиданно возникает капитан Сяо. С исчезновения маленького мальчика минуло вот уже три года, расследование зашло в тупик, и только наши герои способны помочь убитому горем отцу. Но согласятся ли ребята сотрудничать с полицией?\" ,\r\n  \"price\": 8191,\r\n  \"rating\": 4.9,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-7/wc1000/7054998307.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-e/wc1000/7054998242.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-i/wc1000/7054998210.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-2/wc1000/7054998338.jpg\"],\r\n \"link\": \"https://ozon.kz/t/R9bhzH1\",\r\n  \"likes\":2345,\r\n  \"fandom\": \"Link Click\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODc0NjI3LCJpYXQiOjE3NzY4NzQzMjcsImp0aSI6ImU4MmNmYzJlYWFmZjQzZWU5OTYxZTFjZmZjZjhjZDI0IiwidXNlcl9pZCI6IjEifQ.r-RnF6bGtF6YwCIv_V6sR8-uJYnjCaPEWcZTW1hco-0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Link Click. Агент времени. Том 4 | Ли Хаолин \",\r\n  \"description\": \"После звонка неизвестного ребята понимают, что с их подругой случилась беда. Все ниточки ведут к сыну крупного бизнесмена — Лю Миню. Он главный подозреваемый сразу в нескольких делах об убийстве. Вот только полиция оказывается бессильна, ведь у Лю Миня железное алиби. Тогда Чэн Сяоши решает взять дело в свои руки и сам поймать преступника…\" ,\r\n  \"price\": 7497,\r\n  \"rating\": 4.9,\r\n  \"image\": \"https://ir-3.ozone.ru/s3/multimedia-1-6/wc1000/7218113298.jpg\",\r\n  \"images\": [\"https://ir-3.ozone.ru/s3/multimedia-1-b/wc1000/7131842651.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-9/wc1000/7131842649.jpg\", \"https://ir-3.ozone.ru/s3/multimedia-1-a/wc1000/7131842650.jpg\"],\r\n \"link\": \"https://ozon.kz/t/d7pwMjh\",\r\n  \"likes\":2125,\r\n  \"fandom\": \"Link Click\",\r\n  \"categoryId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/products/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    }
+  ]
+}

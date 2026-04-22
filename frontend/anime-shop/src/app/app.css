@@ -7,9 +7,10 @@ nav {
   display: flex;
   gap: 20px;
   padding: 15px 20px;
-  background: rgba(66, 23, 109, 0.642);
+  background: rgba(66, 23, 109, 0.85);
   backdrop-filter: blur(10px);
   align-items: center;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -31,4 +32,9 @@ nav button {
   border: none;
   background: #8a2be2;
   color: white;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #a855f7;
 }

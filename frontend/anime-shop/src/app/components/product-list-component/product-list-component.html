@@ -1,12 +1,16 @@
-<h1 class = "title"> Products</h1>
+<h1 class="title">Products</h1>
 
-@if (products().length === 0){
-    <p>No products in this category</p>
-}@else {
-    <div class="grid">
-        @for (p of products(); track p.id){
-            <app-product-item-component [product]="p" (like)="onLike($event)" (delete)="onDelete($event)"></app-product-item-component>
-        }
-    </div>
+@if (products().length === 0) {
+  <p>No products found</p>
+} @else {
+  <div class="grid">
+    @for (p of products(); track p.id) {
+      <app-product-item-component
+        [product]="p"
+        (like)="onLike($event)"
+        (favorite)="onFavorite($event)"
+        (delete)="onDelete($event)">
+      </app-product-item-component>
+    }
+  </div>
 }
-

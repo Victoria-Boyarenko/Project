@@ -1,7 +1,15 @@
 <nav>
   <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
   <a routerLink="/products" routerLinkActive="active">Products</a>
-  <a routerLink="/categories" routerLinkActive="active">Categories</a>
+  <a routerLink="/fandoms" routerLinkActive="active">Fandoms</a>
+  <a routerLink="/profile" routerLinkActive="active">Profile</a>
+  <a routerLink="/chat" routerLinkActive="active">Chat</a>
+  <a
+    class="nav"
+    href="https://2gis.kz/almaty/search/%D0%9A%D0%B1%D1%82%D1%83"
+    target="_blank">
+    Map
+  </a>
   <a routerLink="/login" routerLinkActive="active">Login</a>
 
   @if (authService.isLoggedIn()) {

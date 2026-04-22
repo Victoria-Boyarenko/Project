@@ -1,0 +1,75 @@
+<h1 class="title" style="color:#caa6ff">My Profile</h1>
+
+@if (loading) {
+  <p style="color: white; text-align: center;">Loading profile...</p>
+} @else {
+
+  @if (errorMessage) {
+    <p style="color: #ff9aa9; text-align: center;">{{ errorMessage }}</p>
+  } @else {
+
+    @if (profile) {
+      <div class="profile-card">
+        <p><b style="color: #caa6ff;">Username: </b> {{ profile.username }}</p>
+        <p><b style="color: #caa6ff;">Email: </b> {{ profile.email }}</p>
+        <p><b style="color: #caa6ff;">Favorites count: </b> {{ profile.favorites.length }}</p>
+      </div>
+
+      <h2 class="favorites-title" style="color:#caa6ff">My Favorites</h2>
+
+      @if (profile.favorites.length === 0) {
+        <p style="color: white; text-align: center;">No favorite products yet</p>
+      } @else {
+
+        <div class="favorites-grid">
+
+          @for (product of profile.favorites; track product.id) {
+
+            <div class="favorite-card" (click)="openProduct(product.id)">
+
+              <img 
+                [src]="product.image" 
+                [alt]="product.name" 
+                class="favorite-img"
+              >
+
+              <div class="favorite-info">
+                <h3>{{ product.name }}</h3>
+
+                <p class="price">
+                  {{ product.price }} ₸
+                </p>
+
+                <p class="fandom">
+                  {{ product.fandom || 'General' }}
+                </p>
+
+                <a
+                  class="open-link"
+                  [href]="product.link"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
+                  Open on Ozon →
+                </a>
+              </div>
+
+            </div>
+
+          }
+
+        </div>
+
+      }
+
+    } @else {
+      <p style="color: #ff9aa9; text-align: center;">Profile not found</p>
+    }
+
+  }
+
+}
+
+
+
+ 

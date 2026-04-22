@@ -1,37 +1,36 @@
-<div class="login-box">
-  <h2>Login</h2>
+<div class="login-page">
+  <h1>Login / Register</h1>
 
-  <input [(ngModel)]="username" placeholder="Username">
-  <input [(ngModel)]="password" type="password" placeholder="Password">
+  <div class="forms-container">
 
-  <div class="buttons">
-    <button type="button" (click)="login()">Login</button>
-    <button type="button" (click)="logout()">Logout</button>
+    <div class="form-box">
+      <h2>Login</h2>
+
+      <input [(ngModel)]="loginUsername" placeholder="Username">
+      <input [(ngModel)]="loginPassword" type="password" placeholder="Password">
+
+      <button (click)="login()">Login</button>
+    </div>
+
+    <div class="form-box">
+      <h2>Register</h2>
+
+      <input [(ngModel)]="registerUsername" placeholder="Username">
+      <input [(ngModel)]="registerEmail" placeholder="Email">
+      <input [(ngModel)]="registerPassword" type="password" placeholder="Password">
+
+      <button (click)="register()">Register</button>
+    </div>
+
   </div>
 
-  <p class="message" *ngIf="successMessage">{{ successMessage }}</p>
-  <p class="message error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+
+  @if (successMessage) {
+    <p class="success-message">{{ successMessage }}</p>
+  }
+
+  @if (errorMessage) {
+    <p class="error-message">{{ errorMessage }}</p>
+  }
 </div>
-
-
-<!-- <div class="login-box">
-  <h2>Login</h2>
-
-  <input [(ngModel)]="username" placeholder="Username">
-  <input [(ngModel)]="password" type="password" placeholder="Password">
-
-  <div class="buttons">
-    <button (click)="login()">Login</button>
-    <button (click)="logout()">Logout</button>
-  </div>
-
-  <div class="message">
-    @if (errorMessage) {
-      <p class="error">{{ errorMessage }}</p>
-    }
-
-    @if (successMessage) {
-      <p class="success">{{ successMessage }}</p>
-    }
-  </div>
-</div> -->

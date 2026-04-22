@@ -1,44 +1,60 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
 export class LoginComponent {
-  username = '';
-  password = '';
+  
+  loginUsername = '';
+  loginPassword = '';
+
+  registerUsername = '';
+  registerEmail = '';
+  registerPassword = '';
+
   errorMessage = '';
   successMessage = '';
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
-    console.log('login button clicked');
-
     this.errorMessage = '';
     this.successMessage = '';
 
-    this.authService.login(this.username, this.password).subscribe({
-      next: (res) => {
-        console.log('LOGIN SUCCESS', res);
+    this.authService.login(this.loginUsername, this.loginPassword).subscribe({
+      next: () => {
         this.successMessage = 'Login successful';
-        setTimeout(() => {
-          this.router.navigate(['/products']);
-        }, 500);
+        this.router.navigate(['/profile']);
       },
-      error: (err) => {
-        console.log('LOGIN ERROR', err);
-        this.errorMessage = 'Invalid username or password';
+      error: () => {
+        this.errorMessage = 'Wrong username or password';
+      }
+    });
+  }
+
+  register(): void {
+    this.errorMessage = '';
+    this.successMessage = '';
+
+    this.authService.register(
+      this.registerUsername,
+      this.registerEmail,
+      this.registerPassword
+    ).subscribe({
+      next: () => {
+        this.successMessage = 'Registration successful';
+        this.router.navigate(['/profile']);
+      },
+      error: () => {
+        this.errorMessage = 'Registration failed';
       }
     });
   }
@@ -46,54 +62,5 @@ export class LoginComponent {
   logout(): void {
     this.authService.logout();
     this.successMessage = 'Logged out';
-    this.errorMessage = '';
   }
 }
-
-
-
-// import { Component } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-// import { CommonModule } from '@angular/common';
-// import { AuthService } from '../../services/auth.service';
-// import { Router } from '@angular/router';
-
-// @Component({
-//   selector: 'app-login',
-//   standalone: true,
-//   imports: [FormsModule, CommonModule],
-//   templateUrl: './login.html',
-//   styleUrl: './login.css'
-// })
-// export class LoginComponent {
-//   username = '';
-//   password = '';
-//   errorMessage = '';
-//   successMessage = '';
-
-//   constructor(
-//     private authService: AuthService,
-//     private router: Router
-//   ) {}
-
-//   login() {
-//     this.errorMessage = '';
-//     this.successMessage = '';
-
-//     this.authService.login(this.username, this.password).subscribe({
-//       next: () => {
-//         this.successMessage = 'Login successful';
-//         this.router.navigate(['/products']);
-//       },
-//       error: () => {
-//         this.errorMessage = 'Invalid username or password';
-//       }
-//     });
-//   }
-
-//   logout() {
-//     this.authService.logout();
-//     this.successMessage = 'Logged out';
-//     this.errorMessage = '';
-//   }
-// }

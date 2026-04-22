@@ -12,7 +12,8 @@ import { AuthService } from './services/auth.service';
 export class App {
   constructor(public authService: AuthService) {}
 
-  logout() {
-    this.authService.logout();
-  }
+  logout(): void {
+  this.authService.logout();
+  window.location.href = '/login';
+}
 }

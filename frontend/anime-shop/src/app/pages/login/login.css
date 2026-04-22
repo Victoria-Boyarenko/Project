@@ -1,111 +1,58 @@
-.login-box {
-  min-height: calc(100vh - 80px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+.login-page {
+  text-align: center;
+  padding: 40px;
+}
 
-  margin-top: -70px;
-  padding: 20px;
-}
- 
-h2 {
-  font-size: 48px;
-  color: #caa6ff;
-  margin-bottom: 10px;
-  text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
-}
- 
-input {
-  width: 350px;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 1px solid #8a2be2;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
- 
-.buttons {
+.forms-container {
   display: flex;
-  gap: 15px;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #b574f2;
+  background: rgba(93, 58, 104, 0.1);
+  color: white;
 }
 
 button {
-  width: 180px;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 12px;
-  border: none;
+  width: 100%;
+  padding: 10px;
   background: #8a2be2;
+  border-radius: 10px;
   color: white;
+  border: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
   background: #a855f7;
 }
- 
-p {
-  color: #ffffff;
-  font-size: 17px;
+
+.logout-btn {
+  margin-top: 20px;
+  width: 200px;
 }
 
-.message {
-  height: 20px;
-}
- 
-.message {
-  min-height: 24px;
-  color: white;
-  font-size: 17px;
-  text-align: center;
+.success-message {
+  color: #7dffb3;
+  margin-top: 15px;
 }
 
-.error {
-  color: #ff8080;
-}
-
-@media (max-width: 900px) {
-  input {
-    width: 280px;
-  }
-
-  button {
-    width: 140px;
-    font-size: 16px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-}
- 
-@media (max-width: 500px) {
-  .login-box {
-    margin-top: 0;
-    padding: 20px;
-  }
-
-  input {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  h2 {
-    font-size: 34px;
-    text-align: center;
-  }
+.error-message {
+  color: #ff9aa9;
+  margin-top: 15px;
 }

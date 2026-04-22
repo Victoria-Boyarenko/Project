@@ -5,22 +5,26 @@ import { ProductItemComponent } from '../product-item-component/product-item-com
 
 @Component({
   selector: 'app-product-list-component',
+  standalone: true,
   imports: [CommonModule, ProductItemComponent],
   templateUrl: './product-list-component.html',
   styleUrl: './product-list-component.css',
 })
 export class ProductListComponent {
-
   products = input.required<Product[]>();
   like = output<number>();
+  favorite = output<number>();
   delete = output<number>();
 
-  onLike (id: number):void{
+  onLike(id: number): void {
     this.like.emit(id);
   }
 
-  onDelete (id: number): void {
-    this.delete.emit(id);
+  onFavorite(id: number): void {
+    this.favorite.emit(id);
   }
 
+  onDelete(id: number): void {
+    this.delete.emit(id);
+  }
 }
